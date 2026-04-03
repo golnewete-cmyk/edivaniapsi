@@ -17,66 +17,60 @@ box-sizing:border-box;
 font-family:'Inter',sans-serif;
 }
 
-/* FUNDO ARTÍSTICO */
+/* FUNDO COMPLEXO */
 body{
 min-height:100vh;
 color:#111;
 overflow-x:hidden;
-background:#fff;
+background:
+radial-gradient(circle at 10% 20%, rgba(0,0,0,0.06), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(0,0,0,0.05), transparent 40%),
+radial-gradient(circle at 50% 90%, rgba(0,0,0,0.04), transparent 40%),
+linear-gradient(120deg,#f8f9fb,#ffffff);
 }
 
-/* CAMADAS DO FUNDO */
-.bg{
+/* GRAIN TEXTURE */
+body::after{
+content:'';
 position:fixed;
-width:100%;
-height:100%;
 top:0;
 left:0;
-z-index:-1;
-overflow:hidden;
+width:100%;
+height:100%;
+background:url('https://www.transparenttextures.com/patterns/noise.png');
+opacity:0.04;
+pointer-events:none;
 }
 
-/* BOLHAS ORGÂNICAS */
-.blob{
-position:absolute;
-border-radius:50%;
+/* LUZ DIFUSA */
+.glow{
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle, rgba(0,0,0,0.08), transparent);
 filter:blur(120px);
-opacity:0.6;
+top:-100px;
+left:-100px;
 animation:float 12s infinite ease-in-out;
 }
 
-.blob1{
+.glow2{
+position:fixed;
 width:500px;
 height:500px;
-background:#e6f0ff;
-top:-100px;
-left:-100px;
-}
-
-.blob2{
-width:400px;
-height:400px;
-background:#ffe6f0;
+background:radial-gradient(circle, rgba(0,0,0,0.06), transparent);
 bottom:-100px;
 right:-100px;
-animation-delay:3s;
-}
-
-.blob3{
-width:350px;
-height:350px;
-background:#e8ffe6;
-top:40%;
-left:60%;
-animation-delay:6s;
+filter:blur(120px);
+animation:float 14s infinite ease-in-out;
 }
 
 @keyframes float{
 0%,100%{transform:translateY(0);}
-50%{transform:translateY(40px);}
+50%{transform:translateY(50px);}
 }
 
-/* CONTEÚDO (SEM CARD) */
+/* CONTEÚDO */
 .wrapper{
 max-width:800px;
 margin:auto;
@@ -88,7 +82,8 @@ h1{
 font-size:42px;
 font-weight:600;
 text-align:center;
-margin-bottom:15px;
+margin-bottom:10px;
+letter-spacing:-0.5px;
 }
 
 .subtitle{
@@ -109,42 +104,47 @@ margin-bottom:60px;
 .form{
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:18px;
 }
 
-/* INPUTS */
+/* INPUT */
 .input{
 padding:18px;
-border-radius:14px;
+border-radius:18px;
 border:1px solid rgba(0,0,0,0.1);
-background:rgba(255,255,255,0.6);
-backdrop-filter:blur(10px);
-font-size:14px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
 transition:0.3s;
 }
 
 .input:focus{
 outline:none;
 border-color:#000;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
 transform:translateY(-2px);
 }
 
-/* BOTÃO PRINCIPAL */
+/* BOTÃO PRINCIPAL (FORTE) */
 .btn{
 margin-top:20px;
 padding:22px;
 border:none;
-border-radius:20px;
+border-radius:22px;
 font-weight:600;
 font-size:16px;
 cursor:pointer;
-background:linear-gradient(135deg,#000,#444);
+background:linear-gradient(135deg,#000,#2d2d2d);
 color:#fff;
-transition:0.4s;
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
 position:relative;
 overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
+animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(0,0,0,0.3);}
+70%{box-shadow:0 0 0 20px rgba(0,0,0,0);}
+100%{box-shadow:0 0 0 0 rgba(0,0,0,0);}
 }
 
 .btn::after{
@@ -154,7 +154,7 @@ top:0;
 left:-100%;
 width:100%;
 height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
 transition:0.6s;
 }
 
@@ -163,11 +163,10 @@ left:100%;
 }
 
 .btn:hover{
-transform:translateY(-5px);
-box-shadow:0 30px 70px rgba(0,0,0,0.35);
+transform:translateY(-5px) scale(1.02);
 }
 
-/* BOTÕES EXTERNOS */
+/* ACTIONS */
 .actions{
 margin-top:40px;
 display:flex;
@@ -178,25 +177,25 @@ gap:15px;
 /* WHATSAPP */
 .whatsapp{
 padding:16px;
-border-radius:18px;
+border-radius:20px;
 background:linear-gradient(135deg,#25D366,#128C7E);
 color:#fff;
 text-align:center;
 text-decoration:none;
 font-weight:500;
-box-shadow:0 15px 40px rgba(37,211,102,0.4);
+box-shadow:0 20px 50px rgba(37,211,102,0.4);
 transition:0.3s;
 }
 
 .whatsapp:hover{
-transform:translateY(-3px) scale(1.02);
-box-shadow:0 25px 60px rgba(37,211,102,0.6);
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 30px 70px rgba(37,211,102,0.6);
 }
 
 /* TIKTOK */
 .tiktok{
 padding:16px;
-border-radius:18px;
+border-radius:20px;
 background:#000;
 color:#fff;
 text-align:center;
@@ -214,7 +213,7 @@ left:-100%;
 width:100%;
 height:100%;
 background:linear-gradient(120deg,#00f2ea,#ff0050);
-opacity:0.7;
+opacity:0.8;
 transition:0.6s;
 }
 
@@ -223,9 +222,10 @@ left:100%;
 }
 
 .tiktok:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
+/* FOOTER */
 .footer{
 text-align:center;
 margin-top:40px;
@@ -238,34 +238,26 @@ font-size:12px;
 
 <body>
 
-<div class="bg">
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-</div>
+<div class="glow"></div>
+<div class="glow2"></div>
 
 <div class="wrapper">
 
 <h1>Atendimento Psicanalítico Online</h1>
 
 <div class="subtitle">
-Um espaço seguro para compreender suas emoções
+Um espaço seguro para compreender suas emoções com profundidade
 </div>
 
 <div class="copy">
-
-A gente passa tanto tempo tentando dar conta de tudo…  
-ser forte o suficiente, acertar o suficiente, ser quem esperam da gente.
-
+A gente passa tanto tempo tentando dar conta de tudo…
 Mas, em algum momento, isso cansa.
 
-E o que aparece não é só cansaço.  
-É ansiedade, confusão, culpa…  
-um sentimento difícil de explicar, mas impossível de ignorar.
+E o que aparece não é só cansaço.
+É ansiedade, confusão, culpa…
 
-Você não precisa ter tudo claro.  
+Você não precisa ter tudo claro.
 Só precisa começar.
-
 </div>
 
 <form class="form"
@@ -287,7 +279,7 @@ target="_blank">
 
 <textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
 
-<button class="btn" type="submit">
+<button class="btn">
 Solicitar contato agora
 </button>
 
@@ -300,7 +292,7 @@ Conversar pelo WhatsApp
 </a>
 
 <a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="tiktok">
-Ver TikTok
+Ver conteúdos no TikTok
 </a>
 
 </div>
