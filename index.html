@@ -18,50 +18,80 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:#ffffff;
-color:#111;
+background:linear-gradient(120deg,#f5f6f8,#ffffff);
+min-height:100vh;
 display:flex;
 justify-content:center;
 padding:40px 20px;
+color:#111;
+}
+
+/* BACKGROUND DECOR */
+body::before{
+content:'';
+position:fixed;
+top:-100px;
+right:-100px;
+width:400px;
+height:400px;
+background:radial-gradient(circle,#e8ecef,transparent);
+z-index:0;
+}
+
+body::after{
+content:'';
+position:fixed;
+bottom:-120px;
+left:-120px;
+width:400px;
+height:400px;
+background:radial-gradient(circle,#f0f2f5,transparent);
+z-index:0;
 }
 
 /* CONTAINER */
 .container{
-max-width:800px;
+position:relative;
+z-index:1;
+max-width:850px;
 width:100%;
-padding:70px 50px;
-border-radius:20px;
-background:#fff;
-box-shadow:0 20px 60px rgba(0,0,0,0.06);
-animation:fadeUp 0.8s ease;
+padding:80px 60px;
+border-radius:28px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(25px);
+box-shadow:
+0 30px 80px rgba(0,0,0,0.08),
+0 5px 20px rgba(0,0,0,0.04);
+animation:fadeUp 0.9s ease;
 }
 
 @keyframes fadeUp{
-from{opacity:0; transform:translateY(30px);}
+from{opacity:0; transform:translateY(40px);}
 to{opacity:1; transform:translateY(0);}
 }
 
 /* TITULO */
 h1{
-font-size:34px;
+font-size:36px;
 font-weight:500;
 text-align:center;
-margin-bottom:10px;
+margin-bottom:12px;
+letter-spacing:-0.5px;
 }
 
 .subtitle{
 text-align:center;
 color:#666;
-margin-bottom:40px;
+margin-bottom:45px;
 font-size:14px;
 }
 
 /* COPY */
 .copy{
-line-height:1.8;
+line-height:1.9;
 color:#444;
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
 font-size:15px;
 }
 
@@ -69,86 +99,111 @@ font-size:15px;
 .form{
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:18px;
 }
 
+/* INPUTS */
 .input{
-padding:16px;
-border-radius:10px;
-border:1px solid #e5e5e5;
+padding:18px;
+border-radius:14px;
+border:1px solid #e5e7eb;
 background:#fafafa;
-outline:none;
-transition:0.25s;
 font-size:14px;
+transition:0.3s;
 }
 
 .input:focus{
-border-color:#000;
+outline:none;
 background:#fff;
+border-color:#000;
+box-shadow:0 0 0 3px rgba(0,0,0,0.05);
+transform:translateY(-1px);
 }
 
-/* BUTTON PRINCIPAL */
+/* BOTÃO PRINCIPAL */
 .btn{
 margin-top:10px;
-padding:18px;
+padding:20px;
 border:none;
-border-radius:12px;
+border-radius:16px;
 font-weight:500;
 cursor:pointer;
-background:#000;
+background:linear-gradient(135deg,#000,#333);
 color:#fff;
 transition:0.3s;
 font-size:15px;
 }
 
 .btn:hover{
-opacity:0.85;
+transform:translateY(-3px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* ACTION BUTTONS */
+/* ACTIONS */
 .actions{
 display:flex;
 flex-direction:column;
-gap:12px;
-margin-top:30px;
+gap:14px;
+margin-top:35px;
 }
 
+/* WHATSAPP */
 .whatsapp{
-background:#25D366;
-color:white;
+background:linear-gradient(135deg,#25D366,#128C7E);
+color:#fff;
+box-shadow:0 10px 25px rgba(37,211,102,0.3);
 }
 
+.whatsapp:hover{
+transform:translateY(-2px);
+box-shadow:0 15px 40px rgba(37,211,102,0.5);
+}
+
+/* TIKTOK */
 .tiktok{
 background:#000;
-color:white;
-border:1px solid #111;
+color:#fff;
+position:relative;
+overflow:hidden;
+}
+
+.tiktok::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,#00f2ea,#ff0050);
+opacity:0.6;
+transition:0.6s;
+}
+
+.tiktok:hover::before{
+left:100%;
 }
 
 .link-btn{
 text-align:center;
-padding:15px;
-border-radius:10px;
+padding:16px;
+border-radius:14px;
 text-decoration:none;
 font-size:14px;
 transition:0.25s;
-}
-
-.link-btn:hover{
-opacity:0.9;
-transform:translateY(-1px);
+display:block;
 }
 
 /* FOOTER */
 .footer{
 text-align:center;
-margin-top:35px;
+margin-top:40px;
 color:#888;
 font-size:12px;
 }
 
 @media(max-width:600px){
 .container{padding:50px 25px;}
-h1{font-size:26px;}
+h1{font-size:28px;}
 }
 
 </style>
@@ -186,10 +241,6 @@ Não precisa saber por onde começar.
 
 Você só precisa começar.
 
-</div>
-
-<div style="text-align:center; margin-bottom:20px; color:#666; font-size:14px;">
-Preencha abaixo e eu entro em contato com você.
 </div>
 
 <form class="form"
