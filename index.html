@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edivania Soares • Psicanálise</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Inter',sans-serif;
+background:radial-gradient(circle at top,#1a1a1a,#000);
+color:#eaeaea;
+min-height:100vh;
+display:flex;
+justify-content:center;
+padding:40px 20px;
+}
+
+/* CONTAINER */
+.container{
+max-width:920px;
+width:100%;
+padding:80px 60px;
+border-radius:32px;
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(40px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 50px 140px rgba(0,0,0,0.95);
+animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* TITULO */
+h1{
+font-family:'Playfair Display',serif;
+font-size:42px;
+text-align:center;
+margin-bottom:15px;
+letter-spacing:0.5px;
+}
+
+.subtitle{
+text-align:center;
+color:#cfcfcf;
+margin-bottom:40px;
+}
+
+/* COPY */
+.copy{
+line-height:1.9;
+color:#bdbdbd;
+text-align:center;
+margin-bottom:50px;
+font-size:15px;
+}
+
+/* FORM */
+.form{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.input{
+padding:18px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.03);
+color:white;
+outline:none;
+transition:0.3s;
+font-size:14px;
+}
+
+.input::placeholder{color:#888;}
+
+.input:focus{
+border-color:#c8a96a;
+box-shadow:0 0 12px rgba(200,169,106,0.4);
+}
+
+/* BUTTON */
+.btn{
+margin-top:10px;
+padding:20px;
+border:none;
+border-radius:16px;
+font-weight:500;
+cursor:pointer;
+background:linear-gradient(135deg,#c8a96a,#6e5a2e);
+color:#000;
+transition:0.4s;
+font-size:15px;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 20px 50px rgba(200,169,106,0.5);
+}
+
+/* ACTIONS */
+.actions{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:40px;
+}
+
+.link-btn{
+text-align:center;
+padding:16px;
+border-radius:14px;
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+.link-btn:hover{
+background:rgba(255,255,255,0.12);
+transform:translateY(-2px);
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+margin-top:40px;
+color:#777;
+font-size:13px;
+}
+
+@media (max-width:600px){
+.container{padding:50px 25px;}
+h1{font-size:30px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Espaço de escuta e compreensão</h1>
+
+<div class="subtitle">
+Psicanálise • Autoconhecimento • Acolhimento emocional
+</div>
+
+<div class="copy">
+
+A gente passa tanto tempo tentando dar conta de tudo…  
+ser forte o suficiente, acertar o suficiente, ser quem esperam da gente.
+
+Mas, em algum momento, isso cansa.
+
+E o que aparece não é só cansaço.  
+É ansiedade, confusão, culpa…  
+um sentimento difícil de explicar, mas impossível de ignorar.
+
+Às vezes, o problema não é o que está acontecendo fora.  
+É o que foi ficando dentro — sem espaço, sem escuta, sem elaboração.
+
+A psicanálise não é sobre te dar respostas prontas.  
+É sobre te ajudar a entender o que você sente, no seu tempo, do seu jeito.
+
+Aqui, você não precisa se explicar perfeitamente.  
+Não precisa saber por onde começar.
+
+Você só precisa começar.
+
+</div>
+
+<div style="text-align:center; margin-bottom:25px; color:#c8a96a;">
+Preencha abaixo e eu entro em contato com você.
+</div>
+
+<form class="form"
+action="https://docs.google.com/forms/d/e/1FAIpQLScbHuWNhvbWBr5Ehslg0-J0mztLNcSlGwCLaCso_708fGV9LQ/formResponse"
+method="POST"
+target="_blank">
+
+<input class="input" name="entry.723470515" placeholder="Qual é o seu nome?" required>
+
+<input class="input" name="entry.1524980727" placeholder="Seu WhatsApp para contato" required>
+
+<input class="input" name="entry.2061952080" placeholder="Seu melhor email" required>
+
+<input class="input" name="entry.792951645" placeholder="Qual é a sua ocupação?" required>
+
+<select class="input" name="entry.335510773" required>
+<option value="">Você já fez terapia antes?</option>
+<option>Nunca fiz terapia</option>
+<option>Já fiz terapia no passado</option>
+<option>Faço terapia atualmente</option>
+</select>
+
+<textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda neste momento?" required></textarea>
+
+<button class="btn" type="submit">
+Solicitar contato
+</button>
+
+</form>
+
+<div class="actions">
+
+<a href="https://wa.me/556684692795" class="link-btn">
+Falar diretamente no WhatsApp
+</a>
+
+<a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-btn">
+Ver conteúdos no TikTok
+</a>
+
+</div>
+
+<div class="footer">
+Edivania Soares • Psicanálise
+</div>
+
+</div>
+
+</body>
+</html>
