@@ -19,7 +19,6 @@ color:#2a2a2a;
 min-height:100vh;
 overflow-x:hidden;
 
-/* FUNDO ARTÍSTICO COMPLEXO */
 background:
 radial-gradient(circle at 15% 20%, rgba(255,235,240,0.9), transparent 40%),
 radial-gradient(circle at 85% 30%, rgba(245,240,255,0.9), transparent 40%),
@@ -27,7 +26,7 @@ radial-gradient(circle at 50% 90%, rgba(255,250,240,0.9), transparent 40%),
 linear-gradient(120deg,#ffffff,#fdfaf7);
 }
 
-/* TEXTURA PREMIUM */
+/* textura */
 body::after{
 content:'';
 position:fixed;
@@ -40,7 +39,7 @@ opacity:0.03;
 pointer-events:none;
 }
 
-/* LUZ DIFUSA */
+/* luz */
 .glow{
 position:fixed;
 width:500px;
@@ -68,32 +67,30 @@ animation:float 12s infinite ease-in-out;
 50%{transform:translateY(40px);}
 }
 
-/* CONTAINER */
+/* container */
 .wrapper{
 max-width:720px;
 margin:auto;
 padding:100px 25px;
 }
 
-/* TITULO */
+/* titulo */
 h1{
 font-family:'Playfair Display',serif;
 font-size:42px;
 font-weight:600;
 text-align:center;
 margin-bottom:10px;
-letter-spacing:-0.5px;
 }
 
-/* SUB */
+/* sub */
 .subtitle{
 text-align:center;
 color:#7a7a7a;
 margin-bottom:45px;
-font-size:15px;
 }
 
-/* COPY */
+/* copy */
 .copy{
 text-align:center;
 line-height:1.9;
@@ -102,51 +99,58 @@ font-size:16px;
 margin-bottom:60px;
 }
 
-/* FORM */
+/* form */
 .form{
 display:flex;
 flex-direction:column;
 gap:18px;
 }
 
-/* INPUT PREMIUM */
+/* INPUT PADRÃO (inclui textarea agora igual) */
 .input{
 padding:18px;
 border-radius:16px;
 border:1px solid rgba(0,0,0,0.08);
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.9);
 font-size:14px;
+font-family:'Inter',sans-serif;
 transition:0.3s;
+resize:none;
+}
+
+.input::placeholder{
+color:#9a9a9a;
 }
 
 .input:focus{
 outline:none;
-border-color:#c9b7a5;
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
+border-color:#000;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
 transform:translateY(-2px);
 }
 
-/* BOTÃO PRINCIPAL (DOMINANTE) */
+/* BOTÃO PROFISSIONAL */
 .btn{
-margin-top:15px;
+margin-top:20px;
 padding:22px;
 border:none;
-border-radius:20px;
+border-radius:18px;
 font-size:16px;
 font-weight:600;
 cursor:pointer;
 
-background:linear-gradient(135deg,#d6bfa7,#b89c7a);
+background:linear-gradient(135deg,#000,#1c1c1c);
 color:#fff;
 
-box-shadow:0 20px 60px rgba(184,156,122,0.4);
+box-shadow:
+0 20px 50px rgba(0,0,0,0.25),
+inset 0 1px 0 rgba(255,255,255,0.1);
+
 transition:0.35s;
 position:relative;
 overflow:hidden;
 }
 
-/* BRILHO */
 .btn::after{
 content:'';
 position:absolute;
@@ -154,18 +158,22 @@ top:0;
 left:-100%;
 width:100%;
 height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);
 transition:0.6s;
 }
 
-.btn:hover::after{left:100%;}
-
-.btn:hover{
-transform:translateY(-4px) scale(1.02);
-box-shadow:0 30px 80px rgba(184,156,122,0.5);
+.btn:hover::after{
+left:100%;
 }
 
-/* BOTÕES EXTERNOS */
+.btn:hover{
+transform:translateY(-3px) scale(1.01);
+box-shadow:
+0 30px 70px rgba(0,0,0,0.35),
+inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* actions */
 .actions{
 margin-top:40px;
 display:flex;
@@ -173,7 +181,7 @@ flex-direction:column;
 gap:14px;
 }
 
-/* WHATSAPP */
+/* whatsapp */
 .whatsapp{
 padding:16px;
 border-radius:16px;
@@ -183,15 +191,9 @@ text-align:center;
 text-decoration:none;
 font-weight:500;
 box-shadow:0 15px 40px rgba(37,211,102,0.4);
-transition:0.3s;
 }
 
-.whatsapp:hover{
-transform:translateY(-3px);
-box-shadow:0 25px 60px rgba(37,211,102,0.6);
-}
-
-/* TIKTOK */
+/* tiktok */
 .tiktok{
 padding:16px;
 border-radius:16px;
@@ -215,9 +217,11 @@ opacity:0.7;
 transition:0.6s;
 }
 
-.tiktok:hover::before{left:100%;}
+.tiktok:hover::before{
+left:100%;
+}
 
-/* FOOTER */
+/* footer */
 .footer{
 text-align:center;
 margin-top:40px;
@@ -242,7 +246,6 @@ Um espaço de escuta, acolhimento e compreensão emocional
 </div>
 
 <div class="copy">
-
 A gente passa tanto tempo tentando dar conta de tudo…  
 ser forte, corresponder, não falhar.
 
@@ -257,7 +260,6 @@ sem julgamentos, no seu tempo.
 
 Você não precisa ter tudo organizado.  
 Só precisa dar o primeiro passo.
-
 </div>
 
 <form class="form"
@@ -280,7 +282,7 @@ target="_blank">
 <textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
 
 <button class="btn">
-Solicitar contato
+Quero iniciar meu atendimento
 </button>
 
 </form>
