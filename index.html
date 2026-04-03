@@ -6,17 +6,20 @@
 
 <title>Edivania Soares • Psicanálise</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
 body{
-font-family:'Inter',sans-serif;
-background:radial-gradient(circle at top,#1a1a1a,#000);
-color:#eaeaea;
-min-height:100vh;
+background:#ffffff;
+color:#111;
 display:flex;
 justify-content:center;
 padding:40px 20px;
@@ -24,41 +27,39 @@ padding:40px 20px;
 
 /* CONTAINER */
 .container{
-max-width:920px;
+max-width:800px;
 width:100%;
-padding:80px 60px;
-border-radius:32px;
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(40px);
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:0 50px 140px rgba(0,0,0,0.95);
-animation:fadeUp 1s ease;
+padding:70px 50px;
+border-radius:20px;
+background:#fff;
+box-shadow:0 20px 60px rgba(0,0,0,0.06);
+animation:fadeUp 0.8s ease;
 }
 
 @keyframes fadeUp{
-from{opacity:0; transform:translateY(40px);}
+from{opacity:0; transform:translateY(30px);}
 to{opacity:1; transform:translateY(0);}
 }
 
 /* TITULO */
 h1{
-font-family:'Playfair Display',serif;
-font-size:42px;
+font-size:34px;
+font-weight:500;
 text-align:center;
-margin-bottom:15px;
-letter-spacing:0.5px;
+margin-bottom:10px;
 }
 
 .subtitle{
 text-align:center;
-color:#cfcfcf;
+color:#666;
 margin-bottom:40px;
+font-size:14px;
 }
 
 /* COPY */
 .copy{
-line-height:1.9;
-color:#bdbdbd;
+line-height:1.8;
+color:#444;
 text-align:center;
 margin-bottom:50px;
 font-size:15px;
@@ -68,80 +69,86 @@ font-size:15px;
 .form{
 display:flex;
 flex-direction:column;
-gap:18px;
+gap:16px;
 }
 
 .input{
-padding:18px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,0.08);
-background:rgba(255,255,255,0.03);
-color:white;
+padding:16px;
+border-radius:10px;
+border:1px solid #e5e5e5;
+background:#fafafa;
 outline:none;
-transition:0.3s;
+transition:0.25s;
 font-size:14px;
 }
 
-.input::placeholder{color:#888;}
-
 .input:focus{
-border-color:#c8a96a;
-box-shadow:0 0 12px rgba(200,169,106,0.4);
+border-color:#000;
+background:#fff;
 }
 
-/* BUTTON */
+/* BUTTON PRINCIPAL */
 .btn{
 margin-top:10px;
-padding:20px;
+padding:18px;
 border:none;
-border-radius:16px;
+border-radius:12px;
 font-weight:500;
 cursor:pointer;
-background:linear-gradient(135deg,#c8a96a,#6e5a2e);
-color:#000;
-transition:0.4s;
+background:#000;
+color:#fff;
+transition:0.3s;
 font-size:15px;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-box-shadow:0 20px 50px rgba(200,169,106,0.5);
+opacity:0.85;
 }
 
-/* ACTIONS */
+/* ACTION BUTTONS */
 .actions{
 display:flex;
 flex-direction:column;
-gap:15px;
-margin-top:40px;
+gap:12px;
+margin-top:30px;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
+.tiktok{
+background:#000;
+color:white;
+border:1px solid #111;
 }
 
 .link-btn{
 text-align:center;
-padding:16px;
-border-radius:14px;
+padding:15px;
+border-radius:10px;
 text-decoration:none;
-color:white;
-background:rgba(255,255,255,0.05);
-transition:0.3s;
+font-size:14px;
+transition:0.25s;
 }
 
 .link-btn:hover{
-background:rgba(255,255,255,0.12);
-transform:translateY(-2px);
+opacity:0.9;
+transform:translateY(-1px);
 }
 
 /* FOOTER */
 .footer{
 text-align:center;
-margin-top:40px;
-color:#777;
-font-size:13px;
+margin-top:35px;
+color:#888;
+font-size:12px;
 }
 
-@media (max-width:600px){
+@media(max-width:600px){
 .container{padding:50px 25px;}
-h1{font-size:30px;}
+h1{font-size:26px;}
 }
 
 </style>
@@ -181,7 +188,7 @@ Você só precisa começar.
 
 </div>
 
-<div style="text-align:center; margin-bottom:25px; color:#c8a96a;">
+<div style="text-align:center; margin-bottom:20px; color:#666; font-size:14px;">
 Preencha abaixo e eu entro em contato com você.
 </div>
 
@@ -215,12 +222,12 @@ Solicitar contato
 
 <div class="actions">
 
-<a href="https://wa.me/556684692795" class="link-btn">
-Falar diretamente no WhatsApp
+<a href="https://wa.me/556684692795" class="link-btn whatsapp">
+Falar no WhatsApp
 </a>
 
-<a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-btn">
-Ver conteúdos no TikTok
+<a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-btn tiktok">
+Ver TikTok
 </a>
 
 </div>
