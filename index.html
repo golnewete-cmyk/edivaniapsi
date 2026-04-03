@@ -4,34 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Edivania Soares • Psicanálise Clínica</title>
+<title>Edivania Soares • Psicanálise</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* FUNDO BONITO E SUAVE */
 body{
 font-family:'Inter',sans-serif;
+color:#2a2a2a;
 min-height:100vh;
-color:#111;
+overflow-x:hidden;
 
+/* FUNDO ARTÍSTICO COMPLEXO */
 background:
-radial-gradient(circle at 15% 20%, #f1f5f9, transparent 40%),
-radial-gradient(circle at 85% 30%, #eef2ff, transparent 40%),
-radial-gradient(circle at 50% 90%, #f8fafc, transparent 40%),
-linear-gradient(120deg,#ffffff,#f9fafb);
+radial-gradient(circle at 15% 20%, rgba(255,235,240,0.9), transparent 40%),
+radial-gradient(circle at 85% 30%, rgba(245,240,255,0.9), transparent 40%),
+radial-gradient(circle at 50% 90%, rgba(255,250,240,0.9), transparent 40%),
+linear-gradient(120deg,#ffffff,#fdfaf7);
 }
 
-/* WRAPPER */
+/* TEXTURA PREMIUM */
+body::after{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('https://www.transparenttextures.com/patterns/noise.png');
+opacity:0.03;
+pointer-events:none;
+}
+
+/* LUZ DIFUSA */
+.glow{
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle, rgba(255,200,210,0.25), transparent);
+filter:blur(120px);
+top:-100px;
+left:-100px;
+animation:float 10s infinite ease-in-out;
+}
+
+.glow2{
+position:fixed;
+width:400px;
+height:400px;
+background:radial-gradient(circle, rgba(200,210,255,0.25), transparent);
+bottom:-100px;
+right:-100px;
+filter:blur(120px);
+animation:float 12s infinite ease-in-out;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(40px);}
+}
+
+/* CONTAINER */
 .wrapper{
-max-width:780px;
+max-width:720px;
 margin:auto;
 padding:100px 25px;
 }
@@ -42,22 +81,23 @@ font-family:'Playfair Display',serif;
 font-size:42px;
 font-weight:600;
 text-align:center;
-margin-bottom:15px;
+margin-bottom:10px;
+letter-spacing:-0.5px;
 }
 
 /* SUB */
 .subtitle{
 text-align:center;
-color:#555;
+color:#7a7a7a;
 margin-bottom:45px;
 font-size:15px;
 }
 
-/* COPY FORTE */
+/* COPY */
 .copy{
 text-align:center;
 line-height:1.9;
-color:#333;
+color:#444;
 font-size:16px;
 margin-bottom:60px;
 }
@@ -69,45 +109,63 @@ flex-direction:column;
 gap:18px;
 }
 
-/* INPUTS BONITOS */
+/* INPUT PREMIUM */
 .input{
 padding:18px;
-border-radius:14px;
-border:1px solid #e5e7eb;
-background:#ffffff;
+border-radius:16px;
+border:1px solid rgba(0,0,0,0.08);
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
 font-size:14px;
 transition:0.3s;
-box-shadow:0 4px 10px rgba(0,0,0,0.03);
 }
 
 .input:focus{
 outline:none;
-border-color:#000;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-color:#c9b7a5;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
 transform:translateY(-2px);
 }
 
-/* BOTÃO PRINCIPAL */
+/* BOTÃO PRINCIPAL (DOMINANTE) */
 .btn{
 margin-top:15px;
 padding:22px;
 border:none;
-border-radius:18px;
+border-radius:20px;
 font-size:16px;
 font-weight:600;
 cursor:pointer;
-background:linear-gradient(135deg,#000,#333);
+
+background:linear-gradient(135deg,#d6bfa7,#b89c7a);
 color:#fff;
-transition:0.3s;
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
+
+box-shadow:0 20px 60px rgba(184,156,122,0.4);
+transition:0.35s;
+position:relative;
+overflow:hidden;
 }
+
+/* BRILHO */
+.btn::after{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+transition:0.6s;
+}
+
+.btn:hover::after{left:100%;}
 
 .btn:hover{
 transform:translateY(-4px) scale(1.02);
-box-shadow:0 30px 70px rgba(0,0,0,0.35);
+box-shadow:0 30px 80px rgba(184,156,122,0.5);
 }
 
-/* AÇÕES */
+/* BOTÕES EXTERNOS */
 .actions{
 margin-top:40px;
 display:flex;
@@ -130,6 +188,7 @@ transition:0.3s;
 
 .whatsapp:hover{
 transform:translateY(-3px);
+box-shadow:0 25px 60px rgba(37,211,102,0.6);
 }
 
 /* TIKTOK */
@@ -140,7 +199,6 @@ background:#000;
 color:#fff;
 text-align:center;
 text-decoration:none;
-font-weight:500;
 position:relative;
 overflow:hidden;
 }
@@ -157,15 +215,13 @@ opacity:0.7;
 transition:0.6s;
 }
 
-.tiktok:hover::before{
-left:100%;
-}
+.tiktok:hover::before{left:100%;}
 
 /* FOOTER */
 .footer{
 text-align:center;
 margin-top:40px;
-color:#666;
+color:#888;
 font-size:12px;
 }
 
@@ -174,37 +230,33 @@ font-size:12px;
 
 <body>
 
+<div class="glow"></div>
+<div class="glow2"></div>
+
 <div class="wrapper">
 
-<h1>Atendimento Psicanalítico Online</h1>
+<h1>Atendimento Psicanalítico</h1>
 
 <div class="subtitle">
-Um espaço seguro, ético e acolhedor para você compreender suas emoções com profundidade
+Um espaço de escuta, acolhimento e compreensão emocional
 </div>
 
 <div class="copy">
 
 A gente passa tanto tempo tentando dar conta de tudo…  
-ser forte o suficiente, acertar o suficiente, corresponder ao que esperam da gente.
+ser forte, corresponder, não falhar.
 
-Mas, em algum momento, isso começa a pesar.
+Mas chega um momento em que isso começa a pesar.
 
 E o que aparece não é só cansaço.  
 É ansiedade, confusão, culpa…  
-um desconforto que muitas vezes você não consegue nem explicar — mas sente todos os dias.
+um desconforto que você sente, mesmo quando não sabe explicar.
 
-Com o tempo, ignorar isso só torna tudo mais difícil.
+A psicanálise é um espaço onde você pode se escutar com mais profundidade,  
+sem julgamentos, no seu tempo.
 
-A psicanálise é um espaço de escuta verdadeira.  
-Sem julgamentos, sem respostas prontas, sem pressa.
-
-Um processo onde você começa a entender o que sente,  
-de onde vem, e por que certas coisas se repetem na sua vida.
-
-Você não precisa saber exatamente o que dizer.  
-Nem ter tudo organizado na sua cabeça.
-
-Você só precisa dar o primeiro passo.
+Você não precisa ter tudo organizado.  
+Só precisa dar o primeiro passo.
 
 </div>
 
@@ -214,21 +266,18 @@ method="POST"
 target="_blank">
 
 <input class="input" name="entry.723470515" placeholder="Seu nome completo" required>
-
-<input class="input" name="entry.1524980727" placeholder="Seu WhatsApp para contato" required>
-
-<input class="input" name="entry.2061952080" placeholder="Seu melhor email" required>
-
-<input class="input" name="entry.792951645" placeholder="Sua ocupação atual" required>
+<input class="input" name="entry.1524980727" placeholder="Seu WhatsApp" required>
+<input class="input" name="entry.2061952080" placeholder="Seu email" required>
+<input class="input" name="entry.792951645" placeholder="Sua ocupação" required>
 
 <select class="input" name="entry.335510773" required>
-<option value="">Você já fez terapia antes?</option>
+<option value="">Você já fez terapia?</option>
 <option>Nunca fiz</option>
 <option>Já fiz</option>
 <option>Faço atualmente</option>
 </select>
 
-<textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda neste momento?" required></textarea>
+<textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
 
 <button class="btn">
 Solicitar contato
@@ -239,11 +288,11 @@ Solicitar contato
 <div class="actions">
 
 <a href="https://wa.me/556684692795" class="whatsapp">
-Conversar pelo WhatsApp
+Falar no WhatsApp
 </a>
 
 <a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="tiktok">
-Ver conteúdos no TikTok
+Ver TikTok
 </a>
 
 </div>
