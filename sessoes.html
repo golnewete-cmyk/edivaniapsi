@@ -74,19 +74,19 @@
     <form class="form" action="https://docs.google.com/forms/d/e/1FAIpQLScSIFETtzU8_Mm_EvUsjlftmLZd4SZl9tpbkStt34mZide1qw/formResponse" method="POST">
         
         <input class="input" name="entry.528648543" placeholder="Nome do paciente" required>
-        <input class="input" name="entry.1286524247" type="email" placeholder="Email do paciente" required>
+        <input class="input" name="entry.1286524247" type="email" placeholder="Email do paciente">
         
         <div class="row">
-            <input class="input" name="entry.92360596" placeholder="Valor do investimento" required>
-            <input class="input" name="entry.825364612" placeholder="Sua Chave Pix" required>
+            <input class="input" name="entry.92360596" placeholder="Valor do investimento">
+            <input class="input" name="entry.825364612" placeholder="Sua Chave Pix">
         </div>
 
-        <input class="input" name="entry.588676876" placeholder="Link da sala (Meet/Zoom)" required>
+        <input class="input" name="entry.588676876" placeholder="Link da sala (Meet/Zoom)">
 
         <div class="section-title">Sessão 1</div>
         <div class="row">
-            <div class="group"><label>Data</label><input class="input" type="date" id="data1" required></div>
-            <div class="group"><label>Hora</label><input class="input" type="time" id="hora1" required></div>
+            <div class="group"><label>Data</label><input class="input" type="date" id="data1"></div>
+            <div class="group"><label>Hora</label><input class="input" type="time" id="hora1"></div>
         </div>
 
         <div class="section-title">Sessão 2</div>
@@ -102,7 +102,7 @@
         </div>
 
         <div class="section-title">Vencimento do Pagamento</div>
-        <div class="group"><input class="input" type="date" id="vencimento" required></div>
+        <div class="group"><input class="input" type="date" id="vencimento"></div>
 
         <input type="hidden" name="entry.1908783304_year" id="s1_y"> <input type="hidden" name="entry.1908783304_month" id="s1_m"> <input type="hidden" name="entry.1908783304_day" id="s1_d">
         <input type="hidden" name="entry.1823333484_hour" id="s1_h"> <input type="hidden" name="entry.1823333484_minute" id="s1_min">
@@ -124,18 +124,18 @@
 <script>
     document.querySelector('form').addEventListener('submit', function() {
         function fillDate(idInput, prefix) {
-            val = document.getElementById(idInput).value;
+            let val = document.getElementById(idInput).value;
             if(val){
-                d = val.split('-');
+                let d = val.split('-');
                 document.getElementById(prefix+'_y').value = d[0];
                 document.getElementById(prefix+'_m').value = d[1];
                 document.getElementById(prefix+'_d').value = d[2];
             }
         }
         function fillTime(idInput, prefix) {
-            val = document.getElementById(idInput).value;
+            let val = document.getElementById(idInput).value;
             if(val){
-                t = val.split(':');
+                let t = val.split(':');
                 document.getElementById(prefix+'_h').value = t[0];
                 document.getElementById(prefix+'_min').value = t[1];
             }
