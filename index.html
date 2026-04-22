@@ -3,306 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Edivania Soares • Psicanálise</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Inter',sans-serif;
-color:#2a2a2a;
-min-height:100vh;
-overflow-x:hidden;
-
-background:
-radial-gradient(circle at 15% 20%, rgba(255,235,240,0.9), transparent 40%),
-radial-gradient(circle at 85% 30%, rgba(245,240,255,0.9), transparent 40%),
-radial-gradient(circle at 50% 90%, rgba(255,250,240,0.9), transparent 40%),
-linear-gradient(120deg,#ffffff,#fdfaf7);
+/* --- DESIGN SYSTEM ULTRA PREMIUM --- */
+:root {
+    --primary: #7B61FF;
+    --accent: #FFB7C5;
+    --text-main: #1d1d1f;
+    --text-sub: #6e6e73;
+    --glass: rgba(255, 255, 255, 0.7);
+    --border: rgba(0, 0, 0, 0.05);
 }
 
-/* textura */
-body::after{
-content:'';
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url('https://www.transparenttextures.com/patterns/noise.png');
-opacity:0.03;
-pointer-events:none;
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: #fbfbfd;
 }
 
-/* luz */
-.glow{
-position:fixed;
-width:500px;
-height:500px;
-background:radial-gradient(circle, rgba(255,200,210,0.25), transparent);
-filter:blur(120px);
-top:-100px;
-left:-100px;
-animation:float 10s infinite ease-in-out;
+/* Fundo com movimento orgânico */
+.bg-gradient {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(123, 97, 255, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 183, 197, 0.12), transparent 40%),
+        #ffffff;
 }
 
-.glow2{
-position:fixed;
-width:400px;
-height:400px;
-background:radial-gradient(circle, rgba(200,210,255,0.25), transparent);
-bottom:-100px;
-right:-100px;
-filter:blur(120px);
-animation:float 12s infinite ease-in-out;
+/* Textura de papel premium */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/noise.png');
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(40px);}
+.wrapper {
+    max-width: 680px;
+    margin: auto;
+    padding: 80px 24px;
+    position: relative;
+    z-index: 10;
 }
 
-/* container */
-.wrapper{
-max-width:720px;
-margin:auto;
-padding:100px 25px;
+/* --- HEADER --- */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
 }
 
-/* titulo */
-h1{
-font-family:'Playfair Display',serif;
-font-size:42px;
-font-weight:600;
-text-align:center;
-margin-bottom:10px;
+.subtitle {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    display: block;
 }
 
-/* sub */
-.subtitle{
-text-align:center;
-color:#7a7a7a;
-margin-bottom:45px;
+.copy {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-sub);
+    margin-bottom: 60px;
+    padding: 0 10px;
 }
 
-/* copy */
-.copy{
-text-align:center;
-line-height:1.9;
-color:#444;
-font-size:16px;
-margin-bottom:60px;
+.copy b { color: #000; font-weight: 600; }
+
+/* --- FORMULÁRIO GLASSMORPHISM --- */
+.form-container {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* form */
-.form{
-display:flex;
-flex-direction:column;
-gap:18px;
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* INPUT PADRÃO (inclui textarea agora igual) */
-.input{
-padding:18px;
-border-radius:16px;
-border:1px solid rgba(0,0,0,0.08);
-background:rgba(255,255,255,0.9);
-font-size:14px;
-font-family:'Inter',sans-serif;
-transition:0.3s;
-resize:none;
+.form { display: flex; flex-direction: column; gap: 20px; }
+
+.input {
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.5);
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input::placeholder{
-color:#9a9a9a;
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(123, 97, 255, 0.1);
+    transform: scale(1.01);
 }
 
-.input:focus{
-outline:none;
-border-color:#000;
-box-shadow:0 12px 30px rgba(0,0,0,0.08);
-transform:translateY(-2px);
+textarea.input { min-height: 120px; resize: none; }
+
+/* --- BOTÕES PREMIUM --- */
+.btn {
+    margin-top: 10px;
+    padding: 22px;
+    border: none;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* BOTÃO PROFISSIONAL */
-.btn{
-margin-top:20px;
-padding:22px;
-border:none;
-border-radius:18px;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-
-background:linear-gradient(135deg,#000,#1c1c1c);
-color:#fff;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,0.25),
-inset 0 1px 0 rgba(255,255,255,0.1);
-
-transition:0.35s;
-position:relative;
-overflow:hidden;
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    background: #1a1a1a;
 }
 
-.btn::after{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);
-transition:0.6s;
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+    animation: rotate 6s linear infinite;
 }
 
-.btn:hover::after{
-left:100%;
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* --- LINKS EXTERNOS --- */
+.actions { margin-top: 50px; display: flex; flex-direction: column; gap: 16px; }
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px) scale(1.01);
-box-shadow:
-0 30px 70px rgba(0,0,0,0.35),
-inset 0 1px 0 rgba(255,255,255,0.2);
+.whatsapp {
+    background: #fff;
+    color: #25D366;
+    border: 1px solid rgba(37, 211, 102, 0.2);
 }
 
-/* actions */
-.actions{
-margin-top:40px;
-display:flex;
-flex-direction:column;
-gap:14px;
+.whatsapp:hover {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
 }
 
-/* whatsapp */
-.whatsapp{
-padding:16px;
-border-radius:16px;
-background:linear-gradient(135deg,#25D366,#128C7E);
-color:#fff;
-text-align:center;
-text-decoration:none;
-font-weight:500;
-box-shadow:0 15px 40px rgba(37,211,102,0.4);
+.tiktok {
+    background: #000;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* tiktok */
-.tiktok{
-padding:16px;
-border-radius:16px;
-background:#000;
-color:#fff;
-text-align:center;
-text-decoration:none;
-position:relative;
-overflow:hidden;
+.tiktok:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.tiktok::before{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,#00f2ea,#ff0050);
-opacity:0.7;
-transition:0.6s;
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 1px;
 }
 
-.tiktok:hover::before{
-left:100%;
+/* Responsivo */
+@media (max-width: 480px) {
+    .wrapper { padding: 40px 20px; }
+    .form-container { padding: 25px; }
+    h1 { font-size: 32px; }
 }
-
-/* footer */
-.footer{
-text-align:center;
-margin-top:40px;
-color:#888;
-font-size:12px;
-}
-
 </style>
 </head>
-
 <body>
 
-<div class="glow"></div>
-<div class="glow2"></div>
+<div class="bg-gradient"></div>
 
 <div class="wrapper">
+    <header>
+        <span class="subtitle">Acolhimento & Escuta</span>
+        <h1>Atendimento Psicanalítico</h1>
+    </header>
 
-<h1>Atendimento Psicanalítico</h1>
+    <div class="copy">
+        A gente passa tanto tempo tentando dar conta de tudo... <b>ser forte, corresponder, não falhar.</b><br><br>
+        Mas chega um momento em que isso começa a pesar. O que aparece não é só cansaço. É ansiedade, confusão, culpa... um desconforto que você sente, mesmo quando não sabe explicar.<br><br>
+        A psicanálise é um espaço onde você pode se escutar com mais profundidade, <b>sem julgamentos, no seu tempo.</b>
+    </div>
 
-<div class="subtitle">
-Um espaço de escuta, acolhimento e compreensão emocional
-</div>
+    <div class="form-container">
+        <form class="form" 
+              action="https://docs.google.com/forms/d/e/1FAIpQLScbHuWNhvbWBr5Ehslg0-J0mztLNcSlGwCLaCso_708fGV9LQ/formResponse" 
+              method="POST" 
+              target="_blank">
 
-<div class="copy">
-A gente passa tanto tempo tentando dar conta de tudo…  
-ser forte, corresponder, não falhar.
+            <input class="input" name="entry.723470515" placeholder="Seu nome completo" required>
+            <input class="input" name="entry.1524980727" placeholder="Seu WhatsApp" required>
+            <input class="input" name="entry.2061952080" placeholder="Seu email" required>
+            <input class="input" name="entry.792951645" placeholder="Sua ocupação" required>
 
-Mas chega um momento em que isso começa a pesar.
+            <select class="input" name="entry.335510773" required>
+                <option value="">Você já fez terapia?</option>
+                <option>Nunca fiz</option>
+                <option>Já fiz</option>
+                <option>Faço atualmente</option>
+            </select>
 
-E o que aparece não é só cansaço.  
-É ansiedade, confusão, culpa…  
-um desconforto que você sente, mesmo quando não sabe explicar.
+            <textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
 
-A psicanálise é um espaço onde você pode se escutar com mais profundidade,  
-sem julgamentos, no seu tempo.
+            <button class="btn">Quero iniciar meu atendimento</button>
+        </form>
+    </div>
 
-Você não precisa ter tudo organizado.  
-Só precisa dar o primeiro passo.
-</div>
+    <div class="actions">
+        <a href="https://wa.me/556684692795" class="link-btn whatsapp">Falar no WhatsApp</a>
+        <a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-btn tiktok">Ver TikTok</a>
+    </div>
 
-<form class="form"
-action="https://docs.google.com/forms/d/e/1FAIpQLScbHuWNhvbWBr5Ehslg0-J0mztLNcSlGwCLaCso_708fGV9LQ/formResponse"
-method="POST"
-target="_blank">
-
-<input class="input" name="entry.723470515" placeholder="Seu nome completo" required>
-<input class="input" name="entry.1524980727" placeholder="Seu WhatsApp" required>
-<input class="input" name="entry.2061952080" placeholder="Seu email" required>
-<input class="input" name="entry.792951645" placeholder="Sua ocupação" required>
-
-<select class="input" name="entry.335510773" required>
-<option value="">Você já fez terapia?</option>
-<option>Nunca fiz</option>
-<option>Já fiz</option>
-<option>Faço atualmente</option>
-</select>
-
-<textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
-
-<button class="btn">
-Quero iniciar meu atendimento
-</button>
-
-</form>
-
-<div class="actions">
-
-<a href="https://wa.me/556684692795" class="whatsapp">
-Falar no WhatsApp
-</a>
-
-<a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="tiktok">
-Ver TikTok
-</a>
-
-</div>
-
-<div class="footer">
-Edivania Soares • Psicanálise
-</div>
-
+    <div class="footer">
+        EDIVANIA SOARES • PSICANALISTA • 2026
+    </div>
 </div>
 
 </body>
