@@ -4,264 +4,264 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edivania Soares • Psicanálise</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- DESIGN SYSTEM ULTRA PREMIUM --- */
+/* --- CONFIGURAÇÕES DE ALTO LUXO --- */
 :root {
-    --primary: #7B61FF;
-    --accent: #FFB7C5;
-    --text-main: #1d1d1f;
-    --text-sub: #6e6e73;
-    --glass: rgba(255, 255, 255, 0.7);
-    --border: rgba(0, 0, 0, 0.05);
+    --primary: #8E7BFF;
+    --primary-glow: rgba(142, 123, 255, 0.4);
+    --accent: #FFD1DC;
+    --text-dark: #121214;
+    --glass-bg: rgba(255, 255, 255, 0.85);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-main);
-    line-height: 1.6;
+    background-color: #fdfdfd;
+    color: var(--text-dark);
     overflow-x: hidden;
-    background: #fbfbfd;
 }
 
-/* Fundo com movimento orgânico */
-.bg-gradient {
+/* Fundo Aurora Animado */
+.aurora-bg {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.aurora-sphere {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
     z-index: -1;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(123, 97, 255, 0.08), transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 183, 197, 0.12), transparent 40%),
-        #ffffff;
+    opacity: 0.4;
+    animation: orbit 25s infinite alternate ease-in-out;
 }
 
-/* Textura de papel premium */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/noise.png');
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 0;
+.sphere-1 { width: 600px; height: 600px; background: var(--primary-glow); top: -10%; left: -10%; }
+.sphere-2 { width: 500px; height: 500px; background: rgba(255, 183, 197, 0.3); bottom: -10%; right: -10%; animation-delay: -5s; }
+
+@keyframes orbit {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(20%, 15%) scale(1.1); }
 }
 
 .wrapper {
-    max-width: 680px;
+    max-width: 650px;
     margin: auto;
-    padding: 80px 24px;
-    position: relative;
-    z-index: 10;
+    padding: 100px 25px;
 }
 
-/* --- HEADER --- */
+/* --- HEADER ESCULPIDO --- */
+header { text-align: center; margin-bottom: 60px; }
+
+.brand-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--primary);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(38px, 10vw, 54px);
     font-weight: 700;
-    text-align: center;
+    line-height: 1.1;
     color: #000;
-    margin-bottom: 12px;
-    letter-spacing: -1px;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
-.subtitle {
+.copy-text {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #555;
     text-align: center;
-    color: var(--primary);
-    font-weight: 500;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    display: block;
 }
 
-.copy {
-    text-align: center;
-    font-size: 18px;
-    color: var(--text-sub);
-    margin-bottom: 60px;
-    padding: 0 10px;
+.copy-text b { color: #000; font-weight: 700; }
+
+/* --- O FORMULÁRIO "DEEP GLASS" --- */
+.form-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 45px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        0 40px 100px -20px rgba(0,0,0,0.06),
+        inset 0 0 20px rgba(255,255,255,0.5);
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.copy b { color: #000; font-weight: 600; }
-
-/* --- FORMULÁRIO GLASSMORPHISM --- */
-.form-container {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 40px;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-    animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(60px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+.form { display: flex; flex-direction: column; gap: 24px; }
 
-.form { display: flex; flex-direction: column; gap: 20px; }
+.input-group { position: relative; }
 
 .input {
     width: 100%;
-    padding: 18px 24px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.5);
+    padding: 20px 28px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.8);
     font-family: inherit;
-    font-size: 15px;
+    font-size: 16px;
+    color: var(--text-dark);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .input:focus {
     outline: none;
-    border-color: var(--primary);
     background: #fff;
-    box-shadow: 0 0 0 4px rgba(123, 97, 255, 0.1);
-    transform: scale(1.01);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px var(--primary-glow);
+    transform: translateY(-2px);
 }
 
-textarea.input { min-height: 120px; resize: none; }
+select.input { cursor: pointer; appearance: none; }
 
-/* --- BOTÕES PREMIUM --- */
-.btn {
-    margin-top: 10px;
-    padding: 22px;
+/* --- BOTÃO SIGNATURE (ULTRA PREMIUM) --- */
+.main-btn {
+    margin-top: 15px;
+    padding: 25px;
     border: none;
-    border-radius: 18px;
-    font-size: 17px;
-    font-weight: 600;
+    border-radius: 22px;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
-    background: #000;
+    background: linear-gradient(145deg, #111, #222);
     color: #fff;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    background: #1a1a1a;
-}
-
-.btn::after {
+.main-btn::before {
     content: '';
     position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
-    animation: rotate 6s linear infinite;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: 0.8s;
 }
 
-@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.main-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    background: #000;
+}
 
-/* --- LINKS EXTERNOS --- */
-.actions { margin-top: 50px; display: flex; flex-direction: column; gap: 16px; }
+.main-btn:hover::before { left: 100%; }
 
-.link-btn {
+/* --- BOTÕES DE ACENTO --- */
+.action-grid { margin-top: 50px; display: grid; gap: 18px; }
+
+.link-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px;
-    border-radius: 18px;
+    padding: 22px;
+    border-radius: 22px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-.whatsapp {
+    font-size: 16px;
+    transition: 0.4s;
     background: #fff;
-    color: #25D366;
-    border: 1px solid rgba(37, 211, 102, 0.2);
+    border: 1px solid rgba(0,0,0,0.03);
+    color: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
 }
 
-.whatsapp:hover {
-    background: #25D366;
-    color: #fff;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+.link-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 
-.tiktok {
-    background: #000;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.tiktok:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
+.wpp-text { color: #25D366; }
 
 .footer {
     text-align: center;
-    margin-top: 60px;
-    font-size: 12px;
-    color: #999;
-    letter-spacing: 1px;
+    margin-top: 80px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #bbb;
 }
 
-/* Responsivo */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 480px) {
-    .wrapper { padding: 40px 20px; }
-    .form-container { padding: 25px; }
-    h1 { font-size: 32px; }
+    .wrapper { padding: 60px 20px; }
+    .form-box { padding: 30px 20px; }
 }
 </style>
 </head>
 <body>
 
-<div class="bg-gradient"></div>
+<div class="aurora-bg"></div>
+<div class="aurora-sphere sphere-1"></div>
+<div class="aurora-sphere sphere-2"></div>
 
 <div class="wrapper">
     <header>
-        <span class="subtitle">Acolhimento & Escuta</span>
-        <h1>Atendimento Psicanalítico</h1>
+        <span class="brand-label">Cuidado Ético e Profundo</span>
+        <h1>Edivania Soares</h1>
+        <div class="copy-text">
+            A gente passa tanto tempo tentando dar conta de tudo... <b>ser forte, corresponder, não falhar.</b><br><br>
+            A psicanálise é um espaço onde você pode se escutar com mais profundidade, <b>sem julgamentos.</b>
+        </div>
     </header>
 
-    <div class="copy">
-        A gente passa tanto tempo tentando dar conta de tudo... <b>ser forte, corresponder, não falhar.</b><br><br>
-        Mas chega um momento em que isso começa a pesar. O que aparece não é só cansaço. É ansiedade, confusão, culpa... um desconforto que você sente, mesmo quando não sabe explicar.<br><br>
-        A psicanálise é um espaço onde você pode se escutar com mais profundidade, <b>sem julgamentos, no seu tempo.</b>
-    </div>
+    <div class="form-box">
+        <form class="form" action="https://docs.google.com/forms/d/e/1FAIpQLScbHuWNhvbWBr5Ehslg0-J0mztLNcSlGwCLaCso_708fGV9LQ/formResponse" method="POST" target="_blank">
 
-    <div class="form-container">
-        <form class="form" 
-              action="https://docs.google.com/forms/d/e/1FAIpQLScbHuWNhvbWBr5Ehslg0-J0mztLNcSlGwCLaCso_708fGV9LQ/formResponse" 
-              method="POST" 
-              target="_blank">
-
-            <input class="input" name="entry.723470515" placeholder="Seu nome completo" required>
-            <input class="input" name="entry.1524980727" placeholder="Seu WhatsApp" required>
-            <input class="input" name="entry.2061952080" placeholder="Seu email" required>
-            <input class="input" name="entry.792951645" placeholder="Sua ocupação" required>
+            <input class="input" name="entry.723470515" placeholder="Nome Completo" required>
+            <input class="input" name="entry.1524980727" placeholder="WhatsApp" required>
+            <input class="input" name="entry.2061952080" placeholder="E-mail" required>
+            <input class="input" name="entry.792951645" placeholder="Ocupação" required>
 
             <select class="input" name="entry.335510773" required>
-                <option value="">Você já fez terapia?</option>
+                <option value="">Já fez terapia?</option>
                 <option>Nunca fiz</option>
                 <option>Já fiz</option>
                 <option>Faço atualmente</option>
             </select>
 
-            <textarea class="input" name="entry.1811384942" placeholder="O que te motivou a procurar ajuda?" required></textarea>
+            <textarea class="input" name="entry.1811384942" placeholder="O que te motivou hoje?" required></textarea>
 
-            <button class="btn">Quero iniciar meu atendimento</button>
+            <button class="main-btn">AGENDAR CONSULTA DE BOAS-VINDAS</button>
         </form>
     </div>
 
-    <div class="actions">
-        <a href="https://wa.me/556684692795" class="link-btn whatsapp">Falar no WhatsApp</a>
-        <a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-btn tiktok">Ver TikTok</a>
+    <div class="action-grid">
+        <a href="https://wa.me/556684692795" class="link-card">
+            <span class="wpp-text">Conectar via WhatsApp</span>
+        </a>
+        <a href="https://vt.tiktok.com/ZSHkmt1Fa/?page=TikTokShop" class="link-card" style="opacity: 0.6;">
+            Acompanhar no TikTok
+        </a>
     </div>
 
     <div class="footer">
-        EDIVANIA SOARES • PSICANALISTA • 2026
+        PSICANALISTA EDIVANIA SOARES • STUDIO DAVI • 2026
     </div>
 </div>
 
